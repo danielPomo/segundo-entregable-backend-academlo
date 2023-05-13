@@ -1,4 +1,5 @@
 const express = require("express")
+const cors = require("cors")
 const db = require("./utils/database")
 const Todos = require("./models/todos.models")
 require("dotenv").config()
@@ -16,6 +17,7 @@ db.sync()
     .then( () => console.log("Database has been synchronized") )
     .catch( (error) => console.log(error)  )
 
+app.use(cors())
 app.use(express.json())
 
 // Create a todo
