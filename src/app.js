@@ -20,6 +20,10 @@ db.sync()
 app.use(cors())
 app.use(express.json())
 
+app.get("/", (req, res)=>{
+    res.send("Servidor funcionando")
+})
+
 // Create a todo
 app.post("/api/v1/todos", async(req, res) => {
     try {
